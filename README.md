@@ -2,6 +2,14 @@
 
 A PHP library to merge configuration arrays.
 
+## Installation
+
+The suggested installation method is via [composer](https://getcomposer.org/):
+
+```sh
+composer require lorenzoferrarajr/lfj-configuration-builder
+```
+
 ## Usage
 
 Instantiate a `ConfigurationBuilder` object, add configurations, call the `build` method to get the merged array. `Zend\Stdlib\ArrayUtils::merge` is used for merging.
