@@ -2,6 +2,8 @@
 
 A PHP library to merge configuration arrays.
 
+[![Build Status](https://travis-ci.org/lorenzoferrarajr/lfj-configuration-builder.svg?branch=master)](https://travis-ci.org/lorenzoferrarajr/lfj-configuration-builder)
+
 ## Installation
 
 The suggested installation method is via [composer](https://getcomposer.org/):
