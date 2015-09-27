@@ -2,7 +2,7 @@
     "name" :       "lorenzoferrarajr/lfj-configuration-builder",
     "description": "A PHP library to build array configuration from various sources",
     "type":        "library",
-    "license":     "BSD-3-Clause",
+    "license":     "MIT",
     "homepage":    "https://github.com/lorenzoferrarajr/lfj-configuration-builder",
     "authors": [
         {
