@@ -4,7 +4,7 @@ use Lfj\ConfigurationBuilder\ConfigurationBuilder;
 
 class ConfigBuilderTest extends PHPUnit_Framework_TestCase
 {
-    public function testWithFileDataProvider()
+    public function testAddFileDataProvider()
     {
         return array(
             array(
@@ -31,14 +31,14 @@ class ConfigBuilderTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testWithFileDataProvider
+     * @dataProvider testAddFileDataProvider
      */
-    public function testWithFile($files, $expected)
+    public function testAddFile($files, $expected)
     {
         $configurationBuilder = new ConfigurationBuilder();
 
         foreach ($files as $item) {
-            $configurationBuilder->withFile($item);
+            $configurationBuilder->addFile($item);
         }
 
         $result = $configurationBuilder->build();
@@ -46,19 +46,19 @@ class ConfigBuilderTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testWithFileDataProvider
+     * @dataProvider testAddFileDataProvider
      */
-    public function testWithFiles($files, $expected)
+    public function testAddFiles($files, $expected)
     {
         $configurationBuilder = new ConfigurationBuilder();
 
-        $configurationBuilder->withFiles($files);
+        $configurationBuilder->addFiles($files);
 
         $result = $configurationBuilder->build();
         $this->assertEquals($expected, $result);
     }
 
-    public function testWithArrayDataProvider()
+    public function testAddArrayDataProvider()
     {
         return array(
             array(
@@ -98,14 +98,14 @@ class ConfigBuilderTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testWithArrayDataProvider
+     * @dataProvider testAddArrayDataProvider
      */
-    public function testWithArray($arrays, $expected)
+    public function testAddArray($arrays, $expected)
     {
         $configurationBuilder = new ConfigurationBuilder();
 
         foreach($arrays as $array) {
-            $configurationBuilder->withArray($array);
+            $configurationBuilder->addArray($array);
         }
 
         $result = $configurationBuilder->build();
@@ -113,7 +113,7 @@ class ConfigBuilderTest extends PHPUnit_Framework_TestCase
     }
 
 
-    public function testWithDirectoryDataProvider()
+    public function testAddDirectoryDataProvider()
     {
         return array(
             array(
@@ -139,14 +139,14 @@ class ConfigBuilderTest extends PHPUnit_Framework_TestCase
     }
 
     /**
-     * @dataProvider testWithDirectoryDataProvider
+     * @dataProvider testAddDirectoryDataProvider
      */
-    public function testWithDirectory($directories, $expected)
+    public function testAddDirectory($directories, $expected)
     {
         $configurationBuilder = new ConfigurationBuilder();
 
         foreach ($directories as $item) {
-            $configurationBuilder->withDirectory($item);
+            $configurationBuilder->addDirectory($item);
         }
 
         $result = $configurationBuilder->build();

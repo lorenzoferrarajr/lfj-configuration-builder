@@ -20,10 +20,10 @@ Instantiate a `ConfigurationBuilder` object, add configurations, call the `build
 
 The `ConfigurationBuilder` provides various methods that can be used to add configurations:
 
-- `withFile`: to add a single php file returning an array
-- `withFiles`: to add multiple files
-- `withDirectory`: to add files located inside a directory
-- `withArray`: to add configuration from array
+- `addFile`: to add a single php file returning an array
+- `addFiles`: to add multiple files
+- `addDirectory`: to add files located inside a directory
+- `addArray`: to add configuration from array
 
 ### Exceptions
 
@@ -69,8 +69,8 @@ In this example two files are passed to the `ConfigurationBuilder` object: first
 ```php
 $cb = new \Lfj\ConfigurationBuilder\ConfigurationBuilder();
 
-$cb->withFile(__DIR__.'/config/mail.global.php');
-$cb->withFile(__DIR__.'/config/mail.local.php');
+$cb->addFile(__DIR__.'/config/mail.global.php');
+$cb->addFile(__DIR__.'/config/mail.local.php');
 
 $config = $cb->build();
 ```
@@ -82,7 +82,7 @@ This example is the same as the previous one but files are passed all at once as
 ```php
 $cb = new \Lfj\ConfigurationBuilder\ConfigurationBuilder();
 
-$cb->withFiles(array(
+$cb->addFiles(array(
     __DIR__.'/config/mail.global.php',
     __DIR__.'/config/mail.local.php',
 ));
@@ -97,7 +97,7 @@ In this example configuration files are loaded from a directory. The pattern use
 ```php
 $cb = new \Lfj\ConfigurationBuilder\ConfigurationBuilder();
 
-$cb->withDirectory(__DIR__.'/config/*.{global,local}.php');
+$cb->addDirectory(__DIR__.'/config/*.{global,local}.php');
 
 $config = $cb->build();
 ```
@@ -111,8 +111,8 @@ This example is the same as the previous but before calling the `build` method a
 ```php
 $cb = new \Lfj\ConfigurationBuilder\ConfigurationBuilder();
 
-$cb->withDirectory(__DIR__.'/config/*.{global,local}.php');
-$cb->withArray(array(
+$cb->addDirectory(__DIR__.'/config/*.{global,local}.php');
+$cb->addArray(array(
     'mail' => array(
         'host' => 'other'
     )

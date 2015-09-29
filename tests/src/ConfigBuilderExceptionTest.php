@@ -11,7 +11,7 @@ class ConfigurationBuilderExceptionTest extends PHPUnit_Framework_TestCase
     {
         $configurationBuilder = new ConfigurationBuilder();
 
-        $configurationBuilder->withFile('file-does-not-exist');
+        $configurationBuilder->addFile('file-does-not-exist');
         $configurationBuilder->build();
     }
 
@@ -22,7 +22,7 @@ class ConfigurationBuilderExceptionTest extends PHPUnit_Framework_TestCase
     {
         $configurationBuilder = new ConfigurationBuilder();
 
-        $configurationBuilder->withFile(__DIR__);
+        $configurationBuilder->addFile(__DIR__);
         $configurationBuilder->build();
     }
 
@@ -33,7 +33,7 @@ class ConfigurationBuilderExceptionTest extends PHPUnit_Framework_TestCase
     {
         $configurationBuilder = new ConfigurationBuilder();
 
-        $configurationBuilder->withFile(__DIR__.'/../config/not-array.php');
+        $configurationBuilder->addFile(__DIR__.'/../config/not-array.php');
         $configurationBuilder->build();
     }
 }

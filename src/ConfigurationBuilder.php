@@ -16,7 +16,7 @@ class ConfigurationBuilder
         $this->files = array();
     }
 
-    public function withFile($file)
+    public function addFile($file)
     {
         $this->list[] = array(
             'type' => 'file',
@@ -28,7 +28,7 @@ class ConfigurationBuilder
         return $this;
     }
 
-    public function withFiles(array $files)
+    public function addFiles(array $files)
     {
         $this->list[] = array(
             'type' => 'files',
@@ -42,7 +42,7 @@ class ConfigurationBuilder
         return $this;
     }
 
-    public function withDirectory($glob)
+    public function addDirectory($glob)
     {
         $this->list[] = array(
             'type' => 'directory',
@@ -56,7 +56,7 @@ class ConfigurationBuilder
         return $this;
     }
 
-    public function withArray(array $array)
+    public function addArray(array $array)
     {
         $this->list[] = array(
             'type' => 'array',
