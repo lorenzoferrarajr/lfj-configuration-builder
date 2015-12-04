@@ -98,19 +98,7 @@ class ConfigurationBuilder
         if ('file' === $data['type'] || 'files' === $data['type'] || 'directory' === $data['type']) {
             foreach ($files as $file) {
 
-                if (!file_exists($file)) {
-                    throw new Exception\FileNotExistsException("The element '$file' does not exist");
-                }
-
-                if (!is_file($file)) {
-                    throw new Exception\NotFileException("The element '$file' is not a file");
-                }
-
-                if (!is_readable($file)) {
-                    throw new Exception\FileNotReadableException("The file '$file' is not readable");
-                }
-
-                $configTmp = include $file;
+                $configTmp = $this->returnConfigurationFromFile($file);
 
                 if (!is_array($configTmp)) {
                     throw new Exception\NotArrayException("The file '$file' is not returning an array");
@@ -130,5 +118,26 @@ class ConfigurationBuilder
     private function merge(array $array1, array $array2)
     {
         return ArrayUtils::merge($array1, $array2);
+    }
+
+    /*
+     * This function returns the configuration saved inside the configuration file.
+     * This process must be isolated because variables created inside the configuration file overwrite local ones.
+     */
+    private function returnConfigurationFromFile($file)
+    {
+        if (!file_exists($file)) {
+            throw new Exception\FileNotExistsException("The element '$file' does not exist");
+        }
+
+        if (!is_file($file)) {
+            throw new Exception\NotFileException("The element '$file' is not a file");
+        }
+
+        if (!is_readable($file)) {
+            throw new Exception\FileNotReadableException("The file '$file' is not readable");
+        }
+
+        return include $file;
     }
 }
